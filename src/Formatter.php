@@ -46,7 +46,7 @@ class Formatter
                             $item['parameters'][] = [
                                 'name' => $parameter['name'],
                                 'required' => $parameter['required'] ?? false,
-                                'example' => $parameter['example'],
+                                'example' => $parameter['example'] ?? '',
                                 'type' => $parameter['schema']['type']
                             ];
                     }
@@ -130,7 +130,7 @@ class Formatter
                 if (isset($property['properties']['items'])) {
                     $assertJson[$name] = [
                         'items' => [
-                            '*' => $property['properties']['items']['items']['required']
+                            '*' => $property['properties']['items']['items']['required'] ?? []
                         ]
                     ];
                 } else {
