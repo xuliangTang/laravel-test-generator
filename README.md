@@ -1,6 +1,10 @@
 # laravel-test-generator
 Laravel package for generating api test automatically.
 
+[![tests](https://github.com/xuliangTang/laravel-test-generator/workflows/tests/badge.svg?branch=main)](https://github.com/xuliangTang/laravel-test-generator/actions?query=workflow%3Atests+branch%3Amain)
+[![PHP Version Require](http://poser.pugx.org/lain/laravel-test-generator/require/php)](https://packagist.org/packages/lain/laravel-test-generator)
+[![Latest Stable Version](https://poser.pugx.org/lain/laravel-test-generator/v)](https://packagist.org/packages/lain/laravel-test-generator)
+
 ## Installation
 
 ```bash
@@ -24,6 +28,6 @@ return [
 ```
 
 ## Usage
-Create ``test-swagger.json`` in your project root directory, It contains the api tests that need to be created, Please make sure it conforms to OpenAPI format (swaager 3.0).
+Create [``test-swagger.json``](https://github.com/xuliangTang/laravel-test-generator/blob/main/tests/test-swagger.json) in your project root directory, It contains the api tests that need to be created, Please make sure it conforms to OpenAPI format (swaager 3.0).
 
 To do so, simply run ```php artisan laravel-test:generate TEST_FILE_NAME``` in your project root. This will write all the test cases into the file based on test-swagger json.
