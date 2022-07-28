@@ -2,8 +2,8 @@
 Laravel package for generating api test automatically.
 
 [![tests](https://github.com/xuliangTang/laravel-test-generator/workflows/tests/badge.svg?branch=main)](https://github.com/xuliangTang/laravel-test-generator/actions?query=workflow%3Atests+branch%3Amain)
-[![PHP Version Require](http://poser.pugx.org/lain/laravel-test-generator/require/php)](https://packagist.org/packages/lain/laravel-test-generator)
-[![Latest Stable Version](https://poser.pugx.org/lain/laravel-test-generator/v)](https://packagist.org/packages/lain/laravel-test-generator)
+[![PHP Version Require](https://img.shields.io/packagist/php-v/lain/laravel-test-generator)](https://packagist.org/packages/lain/laravel-test-generator)
+[![Latest Stable Version](https://img.shields.io/github/v/release/xuliangTang/laravel-test-generator?style=flat)](https://packagist.org/packages/lain/laravel-test-generator)
 
 ## Installation
 
