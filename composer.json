@@ -1,6 +1,8 @@
 {
     "name": "lain/laravel-test-generator",
     "description": "Laravel package for generating api test automatically",
+    "keywords": ["laravel", "test", "generator"],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Lain\\LaravelTestGenerator\\": "src/"
