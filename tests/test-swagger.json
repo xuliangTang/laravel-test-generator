@@ -1,0 +1,1001 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "drm-api",
+        "description": "",
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "web"
+        },
+        {
+            "name": "web/机构"
+        },
+        {
+            "name": "web/机构/专辑"
+        }
+    ],
+    "paths": {
+        "/album/{uuid}": {
+            "delete": {
+                "summary": "删除专辑",
+                "x-apifox-folder": "web/机构/专辑",
+                "x-apifox-status": "developing",
+                "deprecated": false,
+                "description": "",
+                "tags": [
+                    "web/机构/专辑"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "album",
+                        "required": true,
+                        "example": "63a2d5dc-778c-413d-a786-06ac7ca93535",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "example": "{{token}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Organization-ID",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "example": "7a1100d9-3016-423e-9531-9a72369bab33",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {},
+                                "x-apifox-ignore-properties": [],
+                                "x-apifox-orders": []
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "204": {
+                        "description": "成功",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "x-apifox-ignore-properties": [],
+                                    "x-apifox-orders": []
+                                },
+                                "examples": {}
+                            }
+                        }
+                    }
+                }
+            },
+            "get": {
+                "summary": "专辑详情",
+                "x-apifox-folder": "web/机构/专辑",
+                "x-apifox-status": "developing",
+                "deprecated": false,
+                "description": "",
+                "tags": [
+                    "web/机构/专辑"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "album",
+                        "required": true,
+                        "example": "2ece4921-efc9-43f8-8806-0ab44cf82443",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "获取的字段",
+                        "required": false,
+                        "example": "id,name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "example": "{{token}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Organization-ID",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "example": "7a1100d9-3016-423e-9531-9a72369bab33",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "type": "integer"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "uuid": {
+                                                    "type": "string"
+                                                },
+                                                "name": {
+                                                    "type": "string"
+                                                },
+                                                "version": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "integer"
+                                                },
+                                                "label": {
+                                                    "type": "null"
+                                                },
+                                                "artists": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "x-apifox-orders": [
+                                                            "id",
+                                                            "name"
+                                                        ],
+                                                        "x-apifox-ignore-properties": []
+                                                    }
+                                                },
+                                                "language": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-orders": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-ignore-properties": []
+                                                },
+                                                "genre": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-orders": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-ignore-properties": []
+                                                },
+                                                "second_genre": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-orders": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-ignore-properties": []
+                                                },
+                                                "area": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "integer"
+                                                        },
+                                                        "name": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-orders": [
+                                                        "id",
+                                                        "name"
+                                                    ],
+                                                    "x-apifox-ignore-properties": []
+                                                },
+                                                "description": {
+                                                    "type": "string"
+                                                },
+                                                "cover": {
+                                                    "type": "string"
+                                                },
+                                                "full_cover": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "uuid",
+                                                "name",
+                                                "version",
+                                                "type",
+                                                "label",
+                                                "artists",
+                                                "language",
+                                                "genre",
+                                                "second_genre",
+                                                "area",
+                                                "description",
+                                                "cover",
+                                                "full_cover"
+                                            ],
+                                            "x-apifox-orders": [
+                                                "id",
+                                                "uuid",
+                                                "name",
+                                                "version",
+                                                "type",
+                                                "label",
+                                                "artists",
+                                                "language",
+                                                "genre",
+                                                "second_genre",
+                                                "area",
+                                                "description",
+                                                "cover",
+                                                "full_cover"
+                                            ],
+                                            "x-apifox-ignore-properties": []
+                                        }
+                                    },
+                                    "required": [
+                                        "status",
+                                        "code",
+                                        "data"
+                                    ],
+                                    "x-apifox-orders": [
+                                        "status",
+                                        "code",
+                                        "data"
+                                    ],
+                                    "x-apifox-ignore-properties": []
+                                },
+                                "examples": {
+                                    "1": {
+                                        "summary": "成功示例 ",
+                                        "value": {
+                                            "status": "success",
+                                            "code": 200,
+                                            "data": {
+                                                "id": 1,
+                                                "uuid": "de290157-6ea2-4463-995c-d4e1530f8417",
+                                                "name": "李凤兰",
+                                                "version": "文志明",
+                                                "type": 2,
+                                                "label": null,
+                                                "artists": [
+                                                    {
+                                                        "id": 1,
+                                                        "name": "测试张三1"
+                                                    }
+                                                ],
+                                                "language": {
+                                                    "id": 1,
+                                                    "name": "普通话"
+                                                },
+                                                "genre": {
+                                                    "id": 1,
+                                                    "name": "Karlie Goyette"
+                                                },
+                                                "second_genre": {
+                                                    "id": 2,
+                                                    "name": "Everette Goldner"
+                                                },
+                                                "area": {
+                                                    "id": 1,
+                                                    "name": "扬超"
+                                                },
+                                                "description": "eos",
+                                                "cover": "http://www.jing.com/aut-vel-nam-non-voluptas-tempora-vel-consequuntur-quidem",
+                                                "full_cover": "https://democloud-test-1308277749.cos.ap-chengdu.myqcloud.com/http://www.jing.com/aut-vel-nam-non-voluptas-tempora-vel-consequuntur-quidem"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "编辑专辑",
+                "x-apifox-folder": "web/机构/专辑",
+                "x-apifox-status": "developing",
+                "deprecated": false,
+                "description": "",
+                "tags": [
+                    "web/机构/专辑"
+                ],
+                "parameters": [
+                    {
+                        "name": "uuid",
+                        "in": "path",
+                        "description": "album",
+                        "required": true,
+                        "example": "2ece4921-efc9-43f8-8806-0ab44cf82443s",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "example": "{{token}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Organization-ID",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "example": "7a1100d9-3016-423e-9531-9a72369bab33",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 2
+                                    },
+                                    "type": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 2,
+                                        "description": "类型 1视频 2音频"
+                                    },
+                                    "label": {
+                                        "type": "integer",
+                                        "description": "厂牌"
+                                    },
+                                    "artist_ids": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "language_id": {
+                                        "type": "integer"
+                                    },
+                                    "area": {
+                                        "type": "integer",
+                                        "description": "地区 0全世界 1中国大陆 2海外"
+                                    },
+                                    "genre_id": {
+                                        "type": "integer"
+                                    },
+                                    "second_genre_id": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "cover": {
+                                        "type": "string"
+                                    },
+                                    "method_type": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 2,
+                                        "description": "1保存草稿2提交"
+                                    }
+                                },
+                                "required": [
+                                    "name",
+                                    "type",
+                                    "label",
+                                    "artist_ids",
+                                    "language_id",
+                                    "area",
+                                    "genre_id",
+                                    "second_genre_id",
+                                    "method_type"
+                                ],
+                                "x-apifox-ignore-properties": [],
+                                "x-apifox-orders": [
+                                    "name",
+                                    "version",
+                                    "type",
+                                    "label",
+                                    "artist_ids",
+                                    "language_id",
+                                    "area",
+                                    "genre_id",
+                                    "second_genre_id",
+                                    "description",
+                                    "cover",
+                                    "method_type"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "x-apifox-ignore-properties": [],
+                                    "x-apifox-orders": []
+                                },
+                                "examples": {
+                                    "1": {
+                                        "summary": "成功示例 ",
+                                        "value": "{\n    \"status\": \"success\",\n    \"code\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"uuid\": \"de290157-6ea2-4463-995c-d4e1530f8417\",\n        \"name\": \"速何在外\",\n        \"version\": \"老\",\n        \"type\": 2,\n        \"label\": {\n            \"id\": 7,\n            \"name\": \"Dr. Buster Durgan DVM\"\n        },\n        \"artists\": [\n            {\n                \"id\": 3,\n                \"name\": \"Theresia Barrows\"\n            },\n            {\n                \"id\": 31,\n                \"name\": \"Don Glover\"\n            },\n            {\n                \"id\": 44,\n                \"name\": \"Zander Kertzmann\"\n            }\n        ],\n        \"language\": null,\n        \"genre\": null,\n        \"second_genre\": null,\n        \"area\": {\n            \"id\": 4,\n            \"name\": \"Rolfsonland\"\n        },\n        \"description\": \"已层向算意万可下利红四产金。状化空提成治体民着报场受共科包矿适。织构划史能织任音油现质开花院。非酸温之今府战有江识局运济观感响之劳。生第二色土交天图报去色极清提。实太经还给周复起市想打调理率然观。七常率林业月院必五青少团气。\",\n        \"cover\": \"http://dummyimage.com/240x400\",\n        \"full_cover\": \"https://democloud-test-1308277749.cos.ap-chengdu.myqcloud.com/http://dummyimage.com/240x400\"\n    }\n}"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/album": {
+            "post": {
+                "summary": "添加专辑",
+                "x-apifox-folder": "web/机构/专辑",
+                "x-apifox-status": "developing",
+                "deprecated": false,
+                "description": "",
+                "tags": [
+                    "web/机构/专辑"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "example": "{{token}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Organization-ID",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "example": "7a1100d9-3016-423e-9531-9a72369bab33",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "title": "专辑名"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "x-apifox-ignore-properties": [],
+                                "x-apifox-orders": [
+                                    "name"
+                                ]
+                            },
+                            "example": {
+                                "name": "一路向北",
+                                "version": "完整版",
+                                "type": 2,
+                                "label_id": 31,
+                                "artist_ids": [
+                                    14,
+                                    45,
+                                    61
+                                ],
+                                "language_id": 81,
+                                "area_id": 20,
+                                "first_genre_id": 62,
+                                "second_genre_id": 81,
+                                "description": "格关观属石来心示片难数必红。里收数子参很我专素研济样采意于东计。叫地进把意计争根话我于治。新山严争自开做任物革因收品民包里。度矿类和先和何龙响历义算传名儿者。统元组小或山数斯水列系么论流。",
+                                "cover": "http://dummyimage.com/120x600"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "成功",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "x-apifox-ignore-properties": [],
+                                    "x-apifox-orders": []
+                                },
+                                "examples": {
+                                    "1": {
+                                        "summary": "成功示例 ",
+                                        "value": "{\n    \"status\": \"success\",\n    \"code\": 201,\n    \"data\": {\n        \"id\": 3,\n        \"uuid\": \"60d31b58-ba4b-4a72-a7fa-0a79f39508eb\",\n        \"name\": \"入属入国路业入属入国路业入属入国路业\"\n    }\n}"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/albums": {
+            "get": {
+                "summary": "专辑列表",
+                "x-apifox-folder": "web/机构/专辑",
+                "x-apifox-status": "developing",
+                "deprecated": false,
+                "description": "",
+                "tags": [
+                    "web/机构/专辑"
+                ],
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "获取的字段",
+                        "required": false,
+                        "example": "id,name",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "状态:1、草稿 2、审核中 3、未发行 4、已上线 5、被驳回 6、已下架",
+                        "required": false,
+                        "example": "1",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "搜索",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "每页返回数据量",
+                        "example": "30",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "排序值",
+                        "required": false,
+                        "example": "created_at",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "direction",
+                        "in": "query",
+                        "description": "排序规则",
+                        "required": false,
+                        "example": "asc",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "",
+                        "required": false,
+                        "example": "{{token}}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "X-Organization-ID",
+                        "in": "header",
+                        "description": "",
+                        "required": true,
+                        "example": "7a1100d9-3016-423e-9531-9a72369bab33",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "成功",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string"
+                                        },
+                                        "code": {
+                                            "type": "integer"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "items": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "integer"
+                                                            },
+                                                            "uuid": {
+                                                                "type": "string"
+                                                            },
+                                                            "name": {
+                                                                "type": "string"
+                                                            },
+                                                            "type": {
+                                                                "type": "integer"
+                                                            },
+                                                            "status": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "id": {
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "name": {
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "id",
+                                                                    "name"
+                                                                ],
+                                                                "x-apifox-orders": [
+                                                                    "id",
+                                                                    "name"
+                                                                ],
+                                                                "x-apifox-ignore-properties": []
+                                                            },
+                                                            "full_cover": {
+                                                                "type": "string"
+                                                            },
+                                                            "label": {
+                                                                "type": "null"
+                                                            },
+                                                            "version": {
+                                                                "type": "string"
+                                                            },
+                                                            "creator": {
+                                                                "type": "null"
+                                                            },
+                                                            "platform": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "id",
+                                                                        "name"
+                                                                    ],
+                                                                    "x-apifox-orders": [
+                                                                        "id",
+                                                                        "name"
+                                                                    ],
+                                                                    "x-apifox-ignore-properties": []
+                                                                }
+                                                            },
+                                                            "song_count": {
+                                                                "type": "integer"
+                                                            },
+                                                            "upc": {
+                                                                "type": "null"
+                                                            },
+                                                            "issue_area": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "object",
+                                                                    "properties": {
+                                                                        "id": {
+                                                                            "type": "integer"
+                                                                        },
+                                                                        "name": {
+                                                                            "type": "string"
+                                                                        }
+                                                                    },
+                                                                    "x-apifox-orders": [
+                                                                        "id",
+                                                                        "name"
+                                                                    ],
+                                                                    "x-apifox-ignore-properties": []
+                                                                }
+                                                            },
+                                                            "issue_time": {
+                                                                "type": "string"
+                                                            },
+                                                            "created_at": {
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "x-apifox-orders": [
+                                                            "id",
+                                                            "uuid",
+                                                            "name",
+                                                            "type",
+                                                            "status",
+                                                            "full_cover",
+                                                            "label",
+                                                            "version",
+                                                            "creator",
+                                                            "platform",
+                                                            "song_count",
+                                                            "upc",
+                                                            "issue_area",
+                                                            "issue_time",
+                                                            "created_at"
+                                                        ],
+                                                        "required": [
+                                                            "id",
+                                                            "uuid",
+                                                            "name",
+                                                            "type",
+                                                            "status",
+                                                            "full_cover",
+                                                            "label",
+                                                            "version",
+                                                            "creator",
+                                                            "platform",
+                                                            "song_count",
+                                                            "upc",
+                                                            "issue_area",
+                                                            "issue_time",
+                                                            "created_at"
+                                                        ],
+                                                        "x-apifox-ignore-properties": []
+                                                    }
+                                                },
+                                                "meta": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "current_page": {
+                                                            "type": "integer"
+                                                        },
+                                                        "from": {
+                                                            "type": "integer"
+                                                        },
+                                                        "last_page": {
+                                                            "type": "integer"
+                                                        },
+                                                        "per_page": {
+                                                            "type": "integer"
+                                                        },
+                                                        "total": {
+                                                            "type": "integer"
+                                                        },
+                                                        "count": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "current_page",
+                                                        "from",
+                                                        "last_page",
+                                                        "per_page",
+                                                        "total",
+                                                        "count"
+                                                    ],
+                                                    "x-apifox-orders": [
+                                                        "current_page",
+                                                        "from",
+                                                        "last_page",
+                                                        "per_page",
+                                                        "total",
+                                                        "count"
+                                                    ],
+                                                    "x-apifox-ignore-properties": []
+                                                }
+                                            },
+                                            "required": [
+                                                "items",
+                                                "meta"
+                                            ],
+                                            "x-apifox-orders": [
+                                                "items",
+                                                "meta"
+                                            ],
+                                            "x-apifox-ignore-properties": []
+                                        }
+                                    },
+                                    "required": [
+                                        "status",
+                                        "code",
+                                        "data"
+                                    ],
+                                    "x-apifox-orders": [
+                                        "status",
+                                        "code",
+                                        "data"
+                                    ],
+                                    "x-apifox-ignore-properties": []
+                                },
+                                "examples": {
+                                    "1": {
+                                        "summary": "成功示例 ",
+                                        "value": {
+                                            "status": "success",
+                                            "code": 200,
+                                            "data": {
+                                                "items": [
+                                                    {
+                                                        "id": 1,
+                                                        "uuid": "de290157-6ea2-4463-995c-d4e1530f8417",
+                                                        "name": "李凤兰",
+                                                        "type": 2,
+                                                        "status": {
+                                                            "id": 2,
+                                                            "name": "审核中"
+                                                        },
+                                                        "full_cover": "https://democloud-test-1308277749.cos.ap-chengdu.myqcloud.com/http://www.jing.com/aut-vel-nam-non-voluptas-tempora-vel-consequuntur-quidem",
+                                                        "label": null,
+                                                        "version": "文志明",
+                                                        "creator": null,
+                                                        "platform": [
+                                                            {
+                                                                "id": 1,
+                                                                "name": "QQ音乐"
+                                                            },
+                                                            {
+                                                                "id": 2,
+                                                                "name": "酷狗音乐"
+                                                            }
+                                                        ],
+                                                        "song_count": 0,
+                                                        "upc": null,
+                                                        "issue_area": [
+                                                            {
+                                                                "id": 1,
+                                                                "name": "扬超"
+                                                            }
+                                                        ],
+                                                        "issue_time": "2022-05-13 03:08:34",
+                                                        "created_at": "2022-05-13 03:08:32"
+                                                    }
+                                                ],
+                                                "meta": {
+                                                    "current_page": 1,
+                                                    "from": 1,
+                                                    "last_page": 1,
+                                                    "per_page": 30,
+                                                    "total": 1,
+                                                    "count": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {}
+    }
+}
