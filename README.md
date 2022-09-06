@@ -30,4 +30,4 @@ return [
 ## Usage
 Create [``test-swagger.json``](https://github.com/xuliangTang/laravel-test-generator/blob/main/tests/test-swagger.json) in your project root directory, It contains the api tests that need to be created, Please make sure it conforms to OpenAPI format (swaager 3.0).
 
-To do so, simply run ```php artisan laravel-test:generate TEST_FILE_NAME``` in your project root. This will write all the test cases into the file based on test-swagger json.
+To do so, simply run ```php artisan test:generate TEST_FILE_NAME``` in your project root. This will write all the test cases into the file based on test-swagger json.

@@ -165,8 +165,9 @@ class Generator
                 if ($parameter['type'] !== 'array') {
                     $value[] = '\App\Models\\' . ucfirst($model[0]).'::query()->value("'. $model[1] .'")';
                 } else {
-                    $value[] = '\App\Models\\' . ucfirst($model[0]).'::query()->limit(2)->pluck("'. $model[1] .'")';
+                    $value[] = '\App\Models\\' . ucfirst($model[0]).'::query()->limit(2)->pluck("'. $model[1] .'")->toArray()';
                 }
+                $parameter['type'] = 'string';
                 continue;
             }
 
