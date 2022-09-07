@@ -76,7 +76,11 @@ class Generator
         foreach ($pack as $item) {
             $declare = '';
             foreach ($item['routers'] as $router) {
-                $declare .= str_repeat("\t", 2) . '$' . $router['name'] . ' = \App\Models\\'. ucfirst($router['desc']) .'::query()->value("'. $router['name'] .'");' . PHP_EOL;
+                $desc = explode(':', $router['desc']);
+                if (count($desc) < 2) {
+                    throw new \Exception('error: ['. $item['summary'] .']路由参数desc不完整');
+                }
+                $declare .= str_repeat("\t", 2) . '$' . $router['name'] . ' = \App\Models\\'. ucfirst($desc[0]) .'::query()->value("'. $desc[1] .'");' . PHP_EOL;
                 $item['url'] = str_replace('{'. $router['name'] .'}', '{$'. $router['name'] .'}', $item['url']);
             }
 
@@ -162,12 +166,14 @@ class Generator
         for ($i = 0; $i < $factor; $i ++) {
             if (isset($parameter['model']) && $parameter['model']) {
                 $model = explode(':', $parameter['model']);
+                if (count($model) < 2) {
+                    throw new \Exception('error: ['. $parameter['name'] .']参数model不完整');
+                }
                 if ($parameter['type'] !== 'array') {
                     $value[] = '\App\Models\\' . ucfirst($model[0]).'::query()->value("'. $model[1] .'")';
                 } else {
-                    $value[] = '\App\Models\\' . ucfirst($model[0]).'::query()->limit(2)->pluck("'. $model[1] .'")->toArray()';
+                    $value[] = '\App\Models\\' . ucfirst($model[0]).'::query()->limit(2)->pluck("'. $model[1] .'")';
                 }
-                $parameter['type'] = 'string';
                 continue;
             }
 

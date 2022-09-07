@@ -31,7 +31,7 @@
                     {
                         "name": "uuid",
                         "in": "path",
-                        "description": "album",
+                        "description": "album:uuid",
                         "required": true,
                         "example": "63a2d5dc-778c-413d-a786-06ac7ca93535",
                         "schema": {
@@ -101,7 +101,7 @@
                     {
                         "name": "uuid",
                         "in": "path",
-                        "description": "album",
+                        "description": "album:uuid",
                         "required": true,
                         "example": "2ece4921-efc9-43f8-8806-0ab44cf82443",
                         "schema": {
@@ -390,7 +390,7 @@
                     {
                         "name": "uuid",
                         "in": "path",
-                        "description": "album",
+                        "description": "album:uuid",
                         "required": true,
                         "example": "2ece4921-efc9-43f8-8806-0ab44cf82443s",
                         "schema": {
