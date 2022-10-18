@@ -122,12 +122,42 @@ class Formatter
      */
     private function packResponse(string $name, array $property, &$assertJson)
     {
+        if (isset($property['nullable']) && $property['nullable'] === true) {
+            $assertJson[] = $name;
+            return;
+        }
+
         switch ($property['type']) {
             case 'array':
-                $assertJson[$name] = $property['items']['required'];
+                if ($property['items']['type'] === 'object') {
+                    $assertJson[$name] = [
+                        '*' => $property['items']['required'] ?? []
+                    ];
+                } elseif (!isset($property['items']['required'])) {
+                    $assertJson[] = $name;
+                } else {
+                    $assertJson[$name] = $property['items']['required'] ?? [];
+                }
                 break;
             case 'object':
-                if (isset($property['properties']['items'])) {
+                $_ret = [];
+                foreach ($property['properties'] as $k => $v) {
+                    if (!in_array($k, $property['required'])) continue;
+
+                    if ($v['type'] === 'array' && $v['items']['type'] === 'object') {
+                        $_ret[$k] = [
+                            '*' => $v['items']['required'] ?? []
+                        ];
+                    } elseif ($v['type'] === 'object' && isset($v['required'])) {
+                        $_ret[$k] = $v['required'];
+                    } else {
+                        $_ret[] = $k;
+                    }
+                }
+
+                $assertJson[$name] = $_ret;
+
+                /*if (isset($property['properties']['items'])) {
                     $assertJson[$name] = [
                         'items' => [
                             '*' => $property['properties']['items']['items']['required'] ?? []
@@ -135,7 +165,7 @@ class Formatter
                     ];
                 } else {
                     $assertJson[$name] = $property['required'];
-                }
+                }*/
                 break;
             default:
                 $assertJson[] = $name;
